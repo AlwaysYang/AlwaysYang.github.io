@@ -167,6 +167,399 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="default">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/%E6%A0%B9%E6%8D%AENSDate%E5%BE%97%E5%88%B0%E5%86%9C%E5%8E%86%E7%9A%84%E5%B9%B4%E4%BB%BD(%E5%8C%85%E6%8B%AC%E7%94%9F%E8%82%96)-%E3%80%81%E6%9C%88%E3%80%81%E6%97%A5%E3%80%82/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="小飞侠">
+      <meta itemprop="description" content="iOS iphone developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小飞侠的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/31/%E6%A0%B9%E6%8D%AENSDate%E5%BE%97%E5%88%B0%E5%86%9C%E5%8E%86%E7%9A%84%E5%B9%B4%E4%BB%BD(%E5%8C%85%E6%8B%AC%E7%94%9F%E8%82%96)-%E3%80%81%E6%9C%88%E3%80%81%E6%97%A5%E3%80%82/" class="post-title-link" itemprop="url">根据NSDate得到农历的年份(包括生肖)-、月、日。</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-12-31 00:00:00 / Modified: 15:19:22" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="网络上的很多得到农历的年份都是错误的。再次更正一下"><a href="#网络上的很多得到农历的年份都是错误的。再次更正一下" class="headerlink" title="网络上的很多得到农历的年份都是错误的。再次更正一下:"></a>网络上的很多得到农历的年份都是错误的。再次更正一下:</h3><h2 id="关于农历的年份"><a href="#关于农历的年份" class="headerlink" title="关于农历的年份"></a>关于农历的年份</h2><blockquote>
+<p>六十甲子又称六十花甲子，是汉族人民最早、最大的发明创造，其最古老的用途是纪年、纪月、纪日、纪时。纪年为60年一个周期，纪月为5年一个周期，纪日为60天一个周期，纪时为5天一个周期。</p>
+<p>以天干和地支按顺序相配﹐即甲、乙、丙、丁、戊、己、庚、辛、壬、癸与子、丑、寅、卯、辰、巳、午、未、申、酉、戌、亥相组合，从”甲子”起﹐到”癸亥”止﹐满六十为一周﹐称为”六十甲子”。亦称”六十花甲子”。 又因起头是“甲”字的有六组，所以也叫“六甲”。</p>
+</blockquote>
+<h2 id="关于12生肖"><a href="#关于12生肖" class="headerlink" title="关于12生肖"></a>关于12生肖</h2><blockquote>
+<p>十二生肖是十二地支的形象化代表，即子（鼠）、丑（牛）、寅（虎）、卯（兔）、辰（龙）、巳（蛇）、午（马）、未（羊）、申（猴）、酉（鸡）、戌（狗）、亥（猪），随着历史的发展逐渐融合到相生相克的民间信仰观念，表现在婚姻、人生、年运等，每一种生肖都有丰富的传说，并以此形成一种观念阐释系统，成为民间文化中的形象哲学，如婚配上的属相、庙会祈祷、本命年等。现代，更多人把生肖作为春节的吉祥物，成为娱乐文化活动的象征。</p>
+</blockquote>
+<h2 id="农历的年份-（生肖）-例如：甲子（鼠）年"><a href="#农历的年份-（生肖）-例如：甲子（鼠）年" class="headerlink" title="农历的年份 （生肖） 例如：甲子（鼠）年"></a>农历的年份 （生肖） 例如：甲子（鼠）年</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">+ (NSString *)getChineseYearWithDate:(NSDate *)date&#123;</span><br><span class="line">    NSArray *chineseYears &#x3D; [NSArray arrayWithObjects:</span><br><span class="line">                             @&quot;甲子&quot;, @&quot;乙丑&quot;, @&quot;丙寅&quot;, @&quot;丁卯&quot;,  @&quot;戊辰&quot;,  @&quot;己巳&quot;,  @&quot;庚午&quot;,  @&quot;辛未&quot;,  @&quot;壬申&quot;,  @&quot;癸酉&quot;,</span><br><span class="line">                             @&quot;甲戌&quot;,   @&quot;乙亥&quot;,  @&quot;丙子&quot;,  @&quot;丁丑&quot;, @&quot;戊寅&quot;,   @&quot;己卯&quot;,  @&quot;庚辰&quot;,  @&quot;辛巳&quot;,  @&quot;壬午&quot;,  @&quot;癸未&quot;,</span><br><span class="line">                             @&quot;甲申&quot;,   @&quot;乙酉&quot;,  @&quot;丙戌&quot;,  @&quot;丁亥&quot;,  @&quot;戊子&quot;,  @&quot;己丑&quot;,  @&quot;庚寅&quot;,  @&quot;辛卯&quot;,  @&quot;壬辰&quot;,  @&quot;癸巳&quot;,</span><br><span class="line">                             @&quot;甲午&quot;,   @&quot;乙未&quot;,  @&quot;丙申&quot;,  @&quot;丁酉&quot;,  @&quot;戊戌&quot;,  @&quot;己亥&quot;,  @&quot;庚子&quot;,  @&quot;辛丑&quot;,  @&quot;壬寅&quot;,  @&quot;癸卯&quot;,</span><br><span class="line">                             @&quot;甲辰&quot;,   @&quot;乙巳&quot;,  @&quot;丙午&quot;,  @&quot;丁未&quot;,  @&quot;戊申&quot;,  @&quot;己酉&quot;,  @&quot;庚戌&quot;,  @&quot;辛亥&quot;,  @&quot;壬子&quot;,  @&quot;癸丑&quot;,</span><br><span class="line">                             @&quot;甲寅&quot;,   @&quot;乙卯&quot;,  @&quot;丙辰&quot;,  @&quot;丁巳&quot;,  @&quot;戊午&quot;,  @&quot;己未&quot;,  @&quot;庚申&quot;,  @&quot;辛酉&quot;,  @&quot;壬戌&quot;,  @&quot;癸亥&quot;, nil];</span><br><span class="line">    </span><br><span class="line">    NSCalendar *localeCalendar &#x3D; [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierChinese];</span><br><span class="line">    </span><br><span class="line">    unsigned unitFlags &#x3D; NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;</span><br><span class="line">    </span><br><span class="line">    NSDateComponents *localeComp &#x3D; [localeCalendar components:unitFlags fromDate:date];</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    NSString *y_str &#x3D; [chineseYears objectAtIndex:localeComp.year - 1];</span><br><span class="line">    </span><br><span class="line">    NSString *Cz_str &#x3D; nil;</span><br><span class="line">    if ([y_str hasSuffix:@&quot;子&quot;]) &#123;</span><br><span class="line">        Cz_str &#x3D; @&quot;鼠&quot;;</span><br><span class="line">    &#125;else if ([y_str hasSuffix:@&quot;丑&quot;])&#123;</span><br><span class="line">        Cz_str &#x3D; @&quot;牛&quot;;</span><br><span class="line">    &#125;else if ([y_str hasSuffix:@&quot;寅&quot;])&#123;</span><br><span class="line">        Cz_str &#x3D; @&quot;虎&quot;;</span><br><span class="line">    &#125;else if ([y_str hasSuffix:@&quot;卯&quot;])&#123;</span><br><span class="line">        Cz_str &#x3D; @&quot;兔&quot;;</span><br><span class="line">    &#125;else if ([y_str hasSuffix:@&quot;辰&quot;])&#123;</span><br><span class="line">        Cz_str &#x3D; @&quot;龙&quot;;</span><br><span class="line">    &#125;else if ([y_str hasSuffix:@&quot;巳&quot;])&#123;</span><br><span class="line">        Cz_str &#x3D; @&quot;蛇&quot;;</span><br><span class="line">    &#125;else if ([y_str hasSuffix:@&quot;午&quot;])&#123;</span><br><span class="line">        Cz_str &#x3D; @&quot;马&quot;;</span><br><span class="line">    &#125;else if ([y_str hasSuffix:@&quot;未&quot;])&#123;</span><br><span class="line">        Cz_str &#x3D; @&quot;羊&quot;;</span><br><span class="line">    &#125;else if ([y_str hasSuffix:@&quot;申&quot;])&#123;</span><br><span class="line">        Cz_str &#x3D; @&quot;猴&quot;;</span><br><span class="line">    &#125;else if ([y_str hasSuffix:@&quot;酉&quot;])&#123;</span><br><span class="line">        Cz_str &#x3D; @&quot;鸡&quot;;</span><br><span class="line">    &#125;else if ([y_str hasSuffix:@&quot;戌&quot;])&#123;</span><br><span class="line">        Cz_str &#x3D; @&quot;狗&quot;;</span><br><span class="line">    &#125;else if ([y_str hasSuffix:@&quot;亥&quot;])&#123;</span><br><span class="line">        Cz_str &#x3D; @&quot;猪&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    return  [NSString stringWithFormat:@&quot;%@(%@)年&quot;,y_str,Cz_str];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="农历的月、日"><a href="#农历的月、日" class="headerlink" title="农历的月、日"></a>农历的月、日</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">+ (NSString *)getChineseCalendarWithDate:(NSDate *)date&#123;</span><br><span class="line">    NSArray *chineseMonths&#x3D;[NSArray arrayWithObjects:</span><br><span class="line">                            @&quot;正月&quot;, @&quot;二月&quot;, @&quot;三月&quot;, @&quot;四月&quot;, @&quot;五月&quot;, @&quot;六月&quot;, @&quot;七月&quot;, @&quot;八月&quot;,</span><br><span class="line">                            @&quot;九月&quot;, @&quot;十月&quot;, @&quot;冬月&quot;, @&quot;腊月&quot;, nil];</span><br><span class="line">    </span><br><span class="line">    NSArray *chineseDays&#x3D;[NSArray arrayWithObjects:</span><br><span class="line">                          @&quot;初一&quot;, @&quot;初二&quot;, @&quot;初三&quot;, @&quot;初四&quot;, @&quot;初五&quot;, @&quot;初六&quot;, @&quot;初七&quot;, @&quot;初八&quot;, @&quot;初九&quot;, @&quot;初十&quot;,</span><br><span class="line">                          @&quot;十一&quot;, @&quot;十二&quot;, @&quot;十三&quot;, @&quot;十四&quot;, @&quot;十五&quot;, @&quot;十六&quot;, @&quot;十七&quot;, @&quot;十八&quot;, @&quot;十九&quot;, @&quot;二十&quot;,</span><br><span class="line">                          @&quot;廿一&quot;, @&quot;廿二&quot;, @&quot;廿三&quot;, @&quot;廿四&quot;, @&quot;廿五&quot;, @&quot;廿六&quot;, @&quot;廿七&quot;, @&quot;廿八&quot;, @&quot;廿九&quot;, @&quot;三十&quot;,  nil];</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    NSCalendar *localeCalendar &#x3D; [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierChinese];</span><br><span class="line">    </span><br><span class="line">    unsigned unitFlags &#x3D; NSCalendarUnitYear | NSCalendarUnitMonth |  NSCalendarUnitDay;</span><br><span class="line">    </span><br><span class="line">    NSDateComponents *localeComp &#x3D; [localeCalendar components:unitFlags fromDate:date];</span><br><span class="line"></span><br><span class="line">    NSString *m_str &#x3D; [chineseMonths objectAtIndex:localeComp.month-1];</span><br><span class="line">    </span><br><span class="line">    NSString *d_str &#x3D; [chineseDays objectAtIndex:localeComp.day-1];</span><br><span class="line">    </span><br><span class="line">    NSString *chineseCal_str &#x3D;[NSString stringWithFormat: @&quot;%@%@&quot;,m_str,d_str];</span><br><span class="line">    </span><br><span class="line">    return chineseCal_str;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="今天是周几？"><a href="#今天是周几？" class="headerlink" title="今天是周几？"></a>今天是周几？</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">+ (NSString *)getWeekDayWithDate:(NSDate *)date&#123;</span><br><span class="line">    &#x2F;&#x2F;只适用于iOS8</span><br><span class="line">    NSCalendar *greCalendar &#x3D; [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];</span><br><span class="line">    &#x2F;&#x2F; 通过已定义的日历对象，获取某个时间点的NSDateComponents表示，并设置需要表示哪些信息（NSYearCalendarUnit, NSMonthCalendarUnit, NSDayCalendarUnit等）</span><br><span class="line"></span><br><span class="line">    NSDateComponents *dateComponents &#x3D; [greCalendar components:NSCalendarUnitWeekday fromDate:date];</span><br><span class="line">    NSString *str &#x3D; [NSString stringWithFormat:@&quot;%li&quot;,(long)dateComponents.weekday];</span><br><span class="line">    </span><br><span class="line">    if ([str  isEqual: @&quot;1&quot;]) &#123;</span><br><span class="line">        return @&quot;周日&quot;;</span><br><span class="line">    &#125;else if ([str isEqual:@&quot;2&quot;])&#123;</span><br><span class="line">        return @&quot;周一&quot;;</span><br><span class="line">    &#125;else if ([str isEqual:@&quot;3&quot;])&#123;</span><br><span class="line">        return @&quot;周二&quot;;</span><br><span class="line">    &#125;else if ([str isEqual:@&quot;4&quot;])&#123;</span><br><span class="line">        return @&quot;周三&quot;;</span><br><span class="line">    &#125;else if ([str isEqual:@&quot;5&quot;])&#123;</span><br><span class="line">        return @&quot;周四&quot;;</span><br><span class="line">    &#125;else if ([str isEqual:@&quot;6&quot;])&#123;</span><br><span class="line">        return @&quot;周五&quot;;</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return @&quot;周六&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="本年或者本月的第几周-第一个参数传YES-得到本年的第几周-NO为本月的第几周。"><a href="#本年或者本月的第几周-第一个参数传YES-得到本年的第几周-NO为本月的第几周。" class="headerlink" title="本年或者本月的第几周 第一个参数传YES 得到本年的第几周 NO为本月的第几周。"></a>本年或者本月的第几周 第一个参数传YES 得到本年的第几周 NO为本月的第几周。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">+ (NSString *)getWeekInyearOrMouth:(BOOL)inYear WithDate:(NSDate *)date&#123;</span><br><span class="line">    NSCalendar *greCalendar &#x3D; [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];</span><br><span class="line">    &#x2F;&#x2F;  通过已定义的日历对象，获取某个时间点的NSDateComponents表示，并设置需要表示哪些信息（NSYearCalendarUnit, NSMonthCalendarUnit, NSDayCalendarUnit等）</span><br><span class="line"></span><br><span class="line">    NSDateComponents *dateComponents &#x3D; [greCalendar components:NSCalendarUnitWeekOfYear | NSCalendarUnitWeekOfMonth fromDate:date];</span><br><span class="line">    if (inYear) &#123;</span><br><span class="line">        return [NSString stringWithFormat:@&quot;第%li周&quot;,(long)dateComponents.weekOfYear];</span><br><span class="line">    &#125;else&#123;</span><br><span class="line">        return [NSString stringWithFormat:@&quot;第%li周&quot;,(long)dateComponents.weekOfMonth];</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="default">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/%E7%9B%91%E5%90%ACUINavigationController-%E6%BB%91%E5%8A%A8%E8%BF%94%E5%9B%9E%E6%89%8B%E5%8A%BF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="小飞侠">
+      <meta itemprop="description" content="iOS iphone developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小飞侠的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/31/%E7%9B%91%E5%90%ACUINavigationController-%E6%BB%91%E5%8A%A8%E8%BF%94%E5%9B%9E%E6%89%8B%E5%8A%BF/" class="post-title-link" itemprop="url">监听UINavigationController-滑动返回手势</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-12-31 00:00:00 / Modified: 15:20:46" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1、添加代理-UINavigationControllerDelegate"><a href="#1、添加代理-UINavigationControllerDelegate" class="headerlink" title="1、添加代理 UINavigationControllerDelegate"></a>1、添加代理 UINavigationControllerDelegate</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (void)viewWillAppear:(BOOL)animated&#123;</span><br><span class="line">    [super viewWillAppear:animated];</span><br><span class="line">    [self.navigationController.navigationBar setHidden:YES];</span><br><span class="line">    if ([[[UIDevice currentDevice] systemVersion] floatValue] &gt; 7.0) &#123;</span><br><span class="line">        self.navigationController.delegate &#x3D; self;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (void)viewWillDisappear:(BOOL)animated&#123;</span><br><span class="line">    if ([[[UIDevice currentDevice] systemVersion] floatValue] &gt; 7.0) &#123;</span><br><span class="line">        self.navigationController.delegate &#x3D; nil;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2、实现代理方法"><a href="#2、实现代理方法" class="headerlink" title="2、实现代理方法"></a>2、实现代理方法</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;监听滑动手势</span><br><span class="line">- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated&#123;</span><br><span class="line">    id &lt;UIViewControllerTransitionCoordinator&gt;tc &#x3D; navigationController.topViewController.transitionCoordinator;</span><br><span class="line">    [tc notifyWhenInteractionChangesUsingBlock:^(id&lt;UIViewControllerTransitionCoordinatorContext&gt;  _Nonnull context) &#123;</span><br><span class="line">        [dataKit kit].reloadFlage &#x3D; [context isCancelled];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="context-isCancelled-是BOOL类型，未返回-context-isCancelled-YES，返回成功-context-isCancelled-NO。"><a href="#context-isCancelled-是BOOL类型，未返回-context-isCancelled-YES，返回成功-context-isCancelled-NO。" class="headerlink" title="[context isCancelled] 是BOOL类型，未返回[context isCancelled]==YES，返回成功[context isCancelled]==NO。"></a>[context isCancelled] 是BOOL类型，未返回[context isCancelled]==YES，返回成功[context isCancelled]==NO。</h4><h4 id="点击按钮返回-或使用-navigationController-popviewcontorller-不进入此回调。"><a href="#点击按钮返回-或使用-navigationController-popviewcontorller-不进入此回调。" class="headerlink" title="点击按钮返回 或使用 [navigationController popviewcontorller] 不进入此回调。"></a>点击按钮返回 或使用 [navigationController popviewcontorller] 不进入此回调。</h4>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="default">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/%E6%8B%A6%E6%88%AA%E7%B3%BB%E7%BB%9F%E5%BC%B9%E5%87%BA%E6%A1%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="小飞侠">
+      <meta itemprop="description" content="iOS iphone developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小飞侠的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/31/%E6%8B%A6%E6%88%AA%E7%B3%BB%E7%BB%9F%E5%BC%B9%E5%87%BA%E6%A1%86/" class="post-title-link" itemprop="url">拦截系统弹出框</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-12-31 00:00:00 / Modified: 15:12:50" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;objc&#x2F;runtime.h&gt;</span><br><span class="line"></span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    self.view.backgroundColor &#x3D; [UIColor whiteColor];</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; 利用runtime来替换展现弹出框的方法</span><br><span class="line">    static dispatch_once_t onceToken;</span><br><span class="line">    dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">        Method presentM &#x3D; class_getInstanceMethod(self.class, @selector(presentViewController:animated:completion:));</span><br><span class="line">        Method presentSwizzlingM &#x3D; class_getInstanceMethod(self.class, @selector(ox_presentViewController:animated:completion:));</span><br><span class="line">        &#x2F;&#x2F; 交换方法实现</span><br><span class="line">        method_exchangeImplementations(presentM, presentSwizzlingM);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 自己的替换展示弹出框的方法</span><br><span class="line">- (void)ox_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion &#123;</span><br><span class="line">    </span><br><span class="line">    if ([viewControllerToPresent isKindOfClass:[UIAlertController class]]) &#123;&#x2F;&#x2F; 要弹出的是UIAlertController</span><br><span class="line">        &#x2F;&#x2F; 输出到控制到可以发现两者都是null</span><br><span class="line">        NSLog(@&quot;title : %@&quot;,((UIAlertController *)viewControllerToPresent).title);</span><br><span class="line">        NSLog(@&quot;message : %@&quot;,((UIAlertController *)viewControllerToPresent).message);</span><br><span class="line">        </span><br><span class="line">        &#x2F;&#x2F; 换图标时的提示框的title和message都是nil，由此可特殊处理</span><br><span class="line">        UIAlertController *alertController &#x3D; (UIAlertController *)viewControllerToPresent;</span><br><span class="line">        if (alertController.title &#x3D;&#x3D; nil &amp;&amp; alertController.message &#x3D;&#x3D; nil) &#123;&#x2F;&#x2F; 是换图标的提示</span><br><span class="line">            return;</span><br><span class="line">        &#125; else &#123;&#x2F;&#x2F; 其他提示还是正常处理</span><br><span class="line">            [self ox_presentViewController:viewControllerToPresent animated:flag completion:completion];</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; 其他的弹出还是正常处理</span><br><span class="line">    [self ox_presentViewController:viewControllerToPresent animated:flag completion:completion];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="default">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/bundle%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E5%BA%94%E7%94%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="小飞侠">
+      <meta itemprop="description" content="iOS iphone developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小飞侠的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/31/bundle%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">bundle文件的制作和应用</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-12-31 00:00:00 / Modified: 15:22:28" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="bundle文件的简介"><a href="#bundle文件的简介" class="headerlink" title="bundle文件的简介"></a>bundle文件的简介</h2><p>bundle 就是资源文件包，里面可以存放你事先预备好的资源（图片、XIB 等）。我们可以把这些资源打包成一个Bundle文件方便在其他项目中引用。</p>
+<h2 id="bundle文件的特点"><a href="#bundle文件的特点" class="headerlink" title="bundle文件的特点"></a>bundle文件的特点</h2><p>bundle 文件是静态的，其中的资源文件作为资源包不参加项目的编译。也就是说其中不能包含可执行的文件。它仅仅是作为资源，被解析成特定的2进制数据。</p>
+<h2 id="bundle的制作"><a href="#bundle的制作" class="headerlink" title="bundle的制作"></a>bundle的制作</h2><p>制作分为两种方法</p>
+<h3 id="1、使用xcode制作bundle"><a href="#1、使用xcode制作bundle" class="headerlink" title="1、使用xcode制作bundle"></a>1、使用xcode制作bundle</h3><p>新建bundle工程</p>
+<p><img src="https://github.com/AlwaysYang/imgSource/blob/master/1.png?raw=true" alt=""></p>
+<p>导入资源</p>
+<p><img src="https://github.com/AlwaysYang/imgSource/blob/master/2.png?raw=true" alt=""></p>
+<p>编译一下</p>
+<p><img src="https://github.com/AlwaysYang/imgSource/blob/master/2.png?raw=true" alt=""></p>
+<p>找到生成的bundle文件</p>
+<p><img src="https://github.com/AlwaysYang/imgSource/blob/master/3.png?raw=true" alt=""></p>
+<p>直接导入工程就可以使用了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">UIImageView *imgV &#x3D; [[UIImageView alloc] init];</span><br><span class="line">[self.view addSubview:imgV];</span><br><span class="line">[imgV mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.edges.mas_offset(UIEdgeInsetsMake(190, 10, 10, 10));</span><br><span class="line">&#125;];</span><br><span class="line">imgV.image &#x3D; [UIImage imageNamed:@&quot;a.bundle&#x2F;Contents&#x2F;Resources&#x2F;blueSky.png&quot;];</span><br></pre></td></tr></table></figure>
+<h3 id="2、文件夹制作bundle"><a href="#2、文件夹制作bundle" class="headerlink" title="2、文件夹制作bundle"></a>2、文件夹制作bundle</h3><p>在桌面新建一个文件夹里面放入你准备使用的资源文件</p>
+<p>更改文件名为 a.bundle  （文件名由你定）</p>
+<p>这样就完成了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">UIImageView *imgV &#x3D; [[UIImageView alloc] init];</span><br><span class="line">[self.view addSubview:imgV];</span><br><span class="line">[imgV mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.edges.mas_offset(UIEdgeInsetsMake(190, 10, 10, 10));</span><br><span class="line">&#125;];</span><br><span class="line">imgV.image &#x3D; [UIImage imageNamed:@&quot;a.bundle&#x2F;blueSky.png&quot;];</span><br></pre></td></tr></table></figure>
+
+<p>如图<br><img src="https://github.com/AlwaysYang/imgSource/blob/master/4.png?raw=true" alt=""></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="default">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/iOS%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E8%AF%95%E5%9B%BE%E6%8E%A7%E5%88%B6%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="小飞侠">
+      <meta itemprop="description" content="iOS iphone developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小飞侠的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/31/iOS%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E8%AF%95%E5%9B%BE%E6%8E%A7%E5%88%B6%E5%99%A8/" class="post-title-link" itemprop="url">iOS获取当前显示的试图控制器</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-12-31 00:00:00 / Modified: 15:23:49" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="参数传入导航试图控制器或者UITabBarController-self-window-rootViewController-也可。"><a href="#参数传入导航试图控制器或者UITabBarController-self-window-rootViewController-也可。" class="headerlink" title="参数传入导航试图控制器或者UITabBarController self.window.rootViewController 也可。"></a>参数传入导航试图控制器或者UITabBarController self.window.rootViewController 也可。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">+ (UIViewController *)topViewControllerWithRootViewController:(UIViewController*)rootViewController</span><br><span class="line">&#123;</span><br><span class="line">    if ([rootViewController isKindOfClass:[UITabBarController class]]) &#123;</span><br><span class="line">        UITabBarController *tabBarController &#x3D; (UITabBarController *)rootViewController;</span><br><span class="line">        return [self topViewControllerWithRootViewController:tabBarController.selectedViewController];</span><br><span class="line">    &#125; else if ([rootViewController isKindOfClass:[UINavigationController class]]) &#123;</span><br><span class="line">        UINavigationController* navigationController &#x3D; (UINavigationController*)rootViewController;</span><br><span class="line">        return [self topViewControllerWithRootViewController:navigationController.visibleViewController];</span><br><span class="line">    &#125; else if (rootViewController.presentedViewController) &#123;</span><br><span class="line">        UIViewController* presentedViewController &#x3D; rootViewController.presentedViewController;</span><br><span class="line">        return [self topViewControllerWithRootViewController:presentedViewController];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return rootViewController;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>另一种方法</p>
+<p><a href="http://www.jianshu.com/p/a277790c9dc4" target="_blank" rel="noopener">ios收到推送时视图跳转的处理 – 获取当前视图控制器</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="default">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/%E8%A7%A3%E5%86%B3WKWebview-localstorage-%E5%AD%98%E5%8F%96%E4%BF%A1%E6%81%AF%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="小飞侠">
+      <meta itemprop="description" content="iOS iphone developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小飞侠的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/31/%E8%A7%A3%E5%86%B3WKWebview-localstorage-%E5%AD%98%E5%8F%96%E4%BF%A1%E6%81%AF%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/" class="post-title-link" itemprop="url">解决WKWebview-localstorage-存取信息不一致问题</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+              
+
+              <time title="Created: 2019-12-31 00:00:00 / Modified: 15:24:17" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>为了缩短开发周期。我们尝试使用 用webview 加载html页面的方式，实现安卓、iOS开发的同步进行。</p>
+<p>UIWebview 存在内存泄露问题，iOS8以后，苹果推出了新框架Webkit，提供了替换UIWebView的组件WKWebView。</p>
+<p>WKWebView 在内存占用上优化的很多。但是在实践中发现bug：localstorage信息不一致。<br>A页面和B页面都存在 一个WKWebView。 在B页面使用localstorage保存信息。 回到A页面取不到最新的数据。</p>
+<h2 id="原因："><a href="#原因：" class="headerlink" title="原因："></a>原因：</h2><p><a href="https://developer.apple.com/reference/webkit/wkwebviewconfiguration" target="_blank" rel="noopener"> wkwebviewconfiguration </a> 中有个属性 processPool，描述是：The process pool from which to obtain the view’s Web Content process.</p>
+<h2 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h2><p>把config中的processPool变为单例共享</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">WKWebViewConfiguration *wkConfig &#x3D; [[WKWebViewConfiguration alloc] init];</span><br><span class="line">&#x2F;&#x2F;使用单例 解决locastorge 储存问题</span><br><span class="line">wkConfig.processPool &#x3D; [hrWkWebViewController singleWkProcessPool];</span><br><span class="line"></span><br><span class="line">_wkWebView &#x3D; [[WKWebView alloc] initWithFrame:CGRectZero configuration:wkConfig];</span><br><span class="line">        </span><br><span class="line">+ (WKProcessPool *)singleWkProcessPool&#123;</span><br><span class="line">	    AFDISPATCH_ONCE_BLOCK(^&#123;</span><br><span class="line">	        sharedPool &#x3D; [[WKProcessPool alloc] init];</span><br><span class="line">	    &#125;)</span><br><span class="line">	    return sharedPool;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h2><p>使用WKWebview 感觉比 UIWebview 加载还慢一些。不知道是不是缓存的原因。 求老哥们解答。 </p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="default">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/08/Cornerstone-%E5%BF%BD%E7%95%A5%E4%B8%8D%E5%BF%85%E8%A6%81%E6%96%87%E4%BB%B6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -319,7 +712,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
