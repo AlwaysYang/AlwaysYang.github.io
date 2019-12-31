@@ -183,79 +183,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/iOS%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E8%AF%95%E5%9B%BE%E6%8E%A7%E5%88%B6%E5%99%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="小飞侠">
-      <meta itemprop="description" content="iOS iphone developer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小飞侠的博客">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/31/iOS%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E8%AF%95%E5%9B%BE%E6%8E%A7%E5%88%B6%E5%99%A8/" class="post-title-link" itemprop="url">iOS获取当前显示的试图控制器</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-31 00:00:00 / 修改时间：16:39:58" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="参数传入导航试图控制器或者UITabBarController-self-window-rootViewController-也可。"><a href="#参数传入导航试图控制器或者UITabBarController-self-window-rootViewController-也可。" class="headerlink" title="参数传入导航试图控制器或者UITabBarController self.window.rootViewController 也可。"></a>参数传入导航试图控制器或者UITabBarController self.window.rootViewController 也可。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">+ (UIViewController *)topViewControllerWithRootViewController:(UIViewController*)rootViewController</span><br><span class="line">&#123;</span><br><span class="line">    if ([rootViewController isKindOfClass:[UITabBarController class]]) &#123;</span><br><span class="line">        UITabBarController *tabBarController &#x3D; (UITabBarController *)rootViewController;</span><br><span class="line">        return [self topViewControllerWithRootViewController:tabBarController.selectedViewController];</span><br><span class="line">    &#125; else if ([rootViewController isKindOfClass:[UINavigationController class]]) &#123;</span><br><span class="line">        UINavigationController* navigationController &#x3D; (UINavigationController*)rootViewController;</span><br><span class="line">        return [self topViewControllerWithRootViewController:navigationController.visibleViewController];</span><br><span class="line">    &#125; else if (rootViewController.presentedViewController) &#123;</span><br><span class="line">        UIViewController* presentedViewController &#x3D; rootViewController.presentedViewController;</span><br><span class="line">        return [self topViewControllerWithRootViewController:presentedViewController];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return rootViewController;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>另一种方法</p>
-<p><a href="http://www.jianshu.com/p/a277790c9dc4" target="_blank" rel="noopener">ios收到推送时视图跳转的处理 – 获取当前视图控制器</a></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/bundle%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E5%BA%94%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -325,6 +252,79 @@
 <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImageView</span> *imgV = [[<span class="built_in">UIImageView</span> alloc] init];</span><br><span class="line">[<span class="keyword">self</span>.view addSubview:imgV];</span><br><span class="line">[imgV mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.edges.mas_offset(<span class="built_in">UIEdgeInsetsMake</span>(<span class="number">190</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>));</span><br><span class="line">&#125;];</span><br><span class="line">imgV.image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"a.bundle/blueSky.png"</span>];</span><br></pre></td></tr></table></figure>
 
 <p>如图<br><img src="https://github.com/AlwaysYang/imgSource/blob/master/4.png?raw=true" alt=""></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/iOS%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E8%AF%95%E5%9B%BE%E6%8E%A7%E5%88%B6%E5%99%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小飞侠">
+      <meta itemprop="description" content="iOS iphone developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小飞侠的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/31/iOS%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E8%AF%95%E5%9B%BE%E6%8E%A7%E5%88%B6%E5%99%A8/" class="post-title-link" itemprop="url">iOS获取当前显示的试图控制器</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-31 00:00:00 / 修改时间：16:39:58" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="参数传入导航试图控制器或者UITabBarController-self-window-rootViewController-也可。"><a href="#参数传入导航试图控制器或者UITabBarController-self-window-rootViewController-也可。" class="headerlink" title="参数传入导航试图控制器或者UITabBarController self.window.rootViewController 也可。"></a>参数传入导航试图控制器或者UITabBarController self.window.rootViewController 也可。</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">+ (UIViewController *)topViewControllerWithRootViewController:(UIViewController*)rootViewController</span><br><span class="line">&#123;</span><br><span class="line">    if ([rootViewController isKindOfClass:[UITabBarController class]]) &#123;</span><br><span class="line">        UITabBarController *tabBarController &#x3D; (UITabBarController *)rootViewController;</span><br><span class="line">        return [self topViewControllerWithRootViewController:tabBarController.selectedViewController];</span><br><span class="line">    &#125; else if ([rootViewController isKindOfClass:[UINavigationController class]]) &#123;</span><br><span class="line">        UINavigationController* navigationController &#x3D; (UINavigationController*)rootViewController;</span><br><span class="line">        return [self topViewControllerWithRootViewController:navigationController.visibleViewController];</span><br><span class="line">    &#125; else if (rootViewController.presentedViewController) &#123;</span><br><span class="line">        UIViewController* presentedViewController &#x3D; rootViewController.presentedViewController;</span><br><span class="line">        return [self topViewControllerWithRootViewController:presentedViewController];</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        return rootViewController;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>另一种方法</p>
+<p><a href="http://www.jianshu.com/p/a277790c9dc4" target="_blank" rel="noopener">ios收到推送时视图跳转的处理 – 获取当前视图控制器</a></p>
 
       
     </div>
@@ -494,6 +494,77 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/%E7%9B%91%E5%90%ACUINavigationController-%E6%BB%91%E5%8A%A8%E8%BF%94%E5%9B%9E%E6%89%8B%E5%8A%BF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小飞侠">
+      <meta itemprop="description" content="iOS iphone developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小飞侠的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/31/%E7%9B%91%E5%90%ACUINavigationController-%E6%BB%91%E5%8A%A8%E8%BF%94%E5%9B%9E%E6%89%8B%E5%8A%BF/" class="post-title-link" itemprop="url">监听UINavigationController-滑动返回手势</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-31 00:00:00 / 修改时间：16:39:42" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1、添加代理-UINavigationControllerDelegate"><a href="#1、添加代理-UINavigationControllerDelegate" class="headerlink" title="1、添加代理 UINavigationControllerDelegate"></a>1、添加代理 UINavigationControllerDelegate</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewWillAppear:animated];</span><br><span class="line">    [<span class="keyword">self</span>.navigationController.navigationBar setHidden:<span class="literal">YES</span>];</span><br><span class="line">    <span class="keyword">if</span> ([[[<span class="built_in">UIDevice</span> currentDevice] systemVersion] floatValue] &gt; <span class="number">7.0</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.navigationController.delegate = <span class="keyword">self</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewWillDisappear:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line">    <span class="keyword">if</span> ([[[<span class="built_in">UIDevice</span> currentDevice] systemVersion] floatValue] &gt; <span class="number">7.0</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.navigationController.delegate = <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2、实现代理方法"><a href="#2、实现代理方法" class="headerlink" title="2、实现代理方法"></a>2、实现代理方法</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//监听滑动手势</span></span><br><span class="line">- (<span class="keyword">void</span>)navigationController:(<span class="built_in">UINavigationController</span> *)navigationController willShowViewController:(<span class="built_in">UIViewController</span> *)viewController animated:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line">    <span class="keyword">id</span> &lt;<span class="built_in">UIViewControllerTransitionCoordinator</span>&gt;tc = navigationController.topViewController.transitionCoordinator;</span><br><span class="line">    [tc notifyWhenInteractionChangesUsingBlock:^(<span class="keyword">id</span>&lt;<span class="built_in">UIViewControllerTransitionCoordinatorContext</span>&gt;  _Nonnull context) &#123;</span><br><span class="line">        [dataKit kit].reloadFlage = [context isCancelled];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="context-isCancelled-是BOOL类型，未返回-context-isCancelled-YES，返回成功-context-isCancelled-NO。"><a href="#context-isCancelled-是BOOL类型，未返回-context-isCancelled-YES，返回成功-context-isCancelled-NO。" class="headerlink" title="[context isCancelled] 是BOOL类型，未返回[context isCancelled]==YES，返回成功[context isCancelled]==NO。"></a>[context isCancelled] 是BOOL类型，未返回[context isCancelled]==YES，返回成功[context isCancelled]==NO。</h4><h4 id="点击按钮返回-或使用-navigationController-popviewcontorller-不进入此回调。"><a href="#点击按钮返回-或使用-navigationController-popviewcontorller-不进入此回调。" class="headerlink" title="点击按钮返回 或使用 [navigationController popviewcontorller] 不进入此回调。"></a>点击按钮返回 或使用 [navigationController popviewcontorller] 不进入此回调。</h4>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/%E8%A7%A3%E5%86%B3WKWebview-localstorage-%E5%AD%98%E5%8F%96%E4%BF%A1%E6%81%AF%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -553,77 +624,6 @@
 
 <h2 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h2><p>使用WKWebview 感觉比 UIWebview 加载还慢一些。不知道是不是缓存的原因。 求老哥们解答。 </p>
 
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/%E7%9B%91%E5%90%ACUINavigationController-%E6%BB%91%E5%8A%A8%E8%BF%94%E5%9B%9E%E6%89%8B%E5%8A%BF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="小飞侠">
-      <meta itemprop="description" content="iOS iphone developer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小飞侠的博客">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/31/%E7%9B%91%E5%90%ACUINavigationController-%E6%BB%91%E5%8A%A8%E8%BF%94%E5%9B%9E%E6%89%8B%E5%8A%BF/" class="post-title-link" itemprop="url">监听UINavigationController-滑动返回手势</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-31 00:00:00 / 修改时间：16:39:42" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1、添加代理-UINavigationControllerDelegate"><a href="#1、添加代理-UINavigationControllerDelegate" class="headerlink" title="1、添加代理 UINavigationControllerDelegate"></a>1、添加代理 UINavigationControllerDelegate</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewWillAppear:animated];</span><br><span class="line">    [<span class="keyword">self</span>.navigationController.navigationBar setHidden:<span class="literal">YES</span>];</span><br><span class="line">    <span class="keyword">if</span> ([[[<span class="built_in">UIDevice</span> currentDevice] systemVersion] floatValue] &gt; <span class="number">7.0</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.navigationController.delegate = <span class="keyword">self</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewWillDisappear:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line">    <span class="keyword">if</span> ([[[<span class="built_in">UIDevice</span> currentDevice] systemVersion] floatValue] &gt; <span class="number">7.0</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.navigationController.delegate = <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2、实现代理方法"><a href="#2、实现代理方法" class="headerlink" title="2、实现代理方法"></a>2、实现代理方法</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//监听滑动手势</span></span><br><span class="line">- (<span class="keyword">void</span>)navigationController:(<span class="built_in">UINavigationController</span> *)navigationController willShowViewController:(<span class="built_in">UIViewController</span> *)viewController animated:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line">    <span class="keyword">id</span> &lt;<span class="built_in">UIViewControllerTransitionCoordinator</span>&gt;tc = navigationController.topViewController.transitionCoordinator;</span><br><span class="line">    [tc notifyWhenInteractionChangesUsingBlock:^(<span class="keyword">id</span>&lt;<span class="built_in">UIViewControllerTransitionCoordinatorContext</span>&gt;  _Nonnull context) &#123;</span><br><span class="line">        [dataKit kit].reloadFlage = [context isCancelled];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="context-isCancelled-是BOOL类型，未返回-context-isCancelled-YES，返回成功-context-isCancelled-NO。"><a href="#context-isCancelled-是BOOL类型，未返回-context-isCancelled-YES，返回成功-context-isCancelled-NO。" class="headerlink" title="[context isCancelled] 是BOOL类型，未返回[context isCancelled]==YES，返回成功[context isCancelled]==NO。"></a>[context isCancelled] 是BOOL类型，未返回[context isCancelled]==YES，返回成功[context isCancelled]==NO。</h4><h4 id="点击按钮返回-或使用-navigationController-popviewcontorller-不进入此回调。"><a href="#点击按钮返回-或使用-navigationController-popviewcontorller-不进入此回调。" class="headerlink" title="点击按钮返回 或使用 [navigationController popviewcontorller] 不进入此回调。"></a>点击按钮返回 或使用 [navigationController popviewcontorller] 不进入此回调。</h4>
       
     </div>
 
