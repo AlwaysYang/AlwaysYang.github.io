@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
@@ -21,7 +21,7 @@
   var CONFIG = {
     hostname: new URL('http://yoursite.com').hostname,
     root: '/',
-    scheme: 'Muse',
+    scheme: 'Gemini',
     version: '7.6.0',
     exturl: false,
     sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
@@ -46,14 +46,15 @@
   };
 </script>
 
-  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637#import &lt;objc&#x2F;runtime.h&gt;- (void)viewDidLoad &amp;#123;    [super viewDidLoad];    self.view.backgroundColor &#x3D; [UIColor whit">
+  <meta name="description" content="12345678910111213141516171819202122232425262728293031323334353637#import &lt;objc&#x2F;runtime.h&gt;- (void)viewDidLoad &amp;#123;    [super viewDidLoad];    self.view.backgroundColor &#x3D; [UIColor whiteColor];">
 <meta property="og:type" content="article">
 <meta property="og:title" content="拦截系统弹出框">
 <meta property="og:url" content="http://yoursite.com/2019/12/31/%E6%8B%A6%E6%88%AA%E7%B3%BB%E7%BB%9F%E5%BC%B9%E5%87%BA%E6%A1%86/index.html">
 <meta property="og:site_name" content="小飞侠的博客">
-<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637#import &lt;objc&#x2F;runtime.h&gt;- (void)viewDidLoad &amp;#123;    [super viewDidLoad];    self.view.backgroundColor &#x3D; [UIColor whit">
+<meta property="og:description" content="12345678910111213141516171819202122232425262728293031323334353637#import &lt;objc&#x2F;runtime.h&gt;- (void)viewDidLoad &amp;#123;    [super viewDidLoad];    self.view.backgroundColor &#x3D; [UIColor whiteColor];">
+<meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-12-30T16:00:00.000Z">
-<meta property="article:modified_time" content="2019-12-31T07:12:50.076Z">
+<meta property="article:modified_time" content="2019-12-31T08:39:48.788Z">
 <meta property="article:author" content="小飞侠">
 <meta name="twitter:card" content="summary">
 
@@ -121,7 +122,7 @@
   </div>
 
   <div class="site-nav-toggle">
-    <div class="toggle" aria-label="Toggle navigation bar">
+    <div class="toggle" aria-label="切换导航栏">
       <span class="toggle-line toggle-line-first"></span>
       <span class="toggle-line toggle-line-middle"></span>
       <span class="toggle-line toggle-line-last"></span>
@@ -135,12 +136,27 @@
   <ul id="menu" class="menu">
         <li class="menu-item menu-item-home">
 
-    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>Home</a>
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>Archives</a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
 
   </li>
   </ul>
@@ -168,11 +184,11 @@
       
   
   
-  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="default">
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/%E6%8B%A6%E6%88%AA%E7%B3%BB%E7%BB%9F%E5%BC%B9%E5%87%BA%E6%A1%86/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
       <meta itemprop="name" content="小飞侠">
       <meta itemprop="description" content="iOS iphone developer">
     </span>
@@ -190,10 +206,21 @@
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
-              <span class="post-meta-item-text">Posted on</span>
+              <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="Created: 2019-12-31 00:00:00 / Modified: 15:12:50" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
+              <time title="创建时间：2019-12-31 00:00:00 / 修改时间：16:39:48" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
             </span>
 
           
@@ -207,7 +234,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">#import &lt;objc&#x2F;runtime.h&gt;</span><br><span class="line"></span><br><span class="line">- (void)viewDidLoad &#123;</span><br><span class="line">    [super viewDidLoad];</span><br><span class="line">    self.view.backgroundColor &#x3D; [UIColor whiteColor];</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; 利用runtime来替换展现弹出框的方法</span><br><span class="line">    static dispatch_once_t onceToken;</span><br><span class="line">    dispatch_once(&amp;onceToken, ^&#123;</span><br><span class="line">        Method presentM &#x3D; class_getInstanceMethod(self.class, @selector(presentViewController:animated:completion:));</span><br><span class="line">        Method presentSwizzlingM &#x3D; class_getInstanceMethod(self.class, @selector(ox_presentViewController:animated:completion:));</span><br><span class="line">        &#x2F;&#x2F; 交换方法实现</span><br><span class="line">        method_exchangeImplementations(presentM, presentSwizzlingM);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 自己的替换展示弹出框的方法</span><br><span class="line">- (void)ox_presentViewController:(UIViewController *)viewControllerToPresent animated:(BOOL)flag completion:(void (^)(void))completion &#123;</span><br><span class="line">    </span><br><span class="line">    if ([viewControllerToPresent isKindOfClass:[UIAlertController class]]) &#123;&#x2F;&#x2F; 要弹出的是UIAlertController</span><br><span class="line">        &#x2F;&#x2F; 输出到控制到可以发现两者都是null</span><br><span class="line">        NSLog(@&quot;title : %@&quot;,((UIAlertController *)viewControllerToPresent).title);</span><br><span class="line">        NSLog(@&quot;message : %@&quot;,((UIAlertController *)viewControllerToPresent).message);</span><br><span class="line">        </span><br><span class="line">        &#x2F;&#x2F; 换图标时的提示框的title和message都是nil，由此可特殊处理</span><br><span class="line">        UIAlertController *alertController &#x3D; (UIAlertController *)viewControllerToPresent;</span><br><span class="line">        if (alertController.title &#x3D;&#x3D; nil &amp;&amp; alertController.message &#x3D;&#x3D; nil) &#123;&#x2F;&#x2F; 是换图标的提示</span><br><span class="line">            return;</span><br><span class="line">        &#125; else &#123;&#x2F;&#x2F; 其他提示还是正常处理</span><br><span class="line">            [self ox_presentViewController:viewControllerToPresent animated:flag completion:completion];</span><br><span class="line">            return;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    &#x2F;&#x2F; 其他的弹出还是正常处理</span><br><span class="line">    [self ox_presentViewController:viewControllerToPresent animated:flag completion:completion];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="keyword">self</span>.view.backgroundColor = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 利用runtime来替换展现弹出框的方法</span></span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">        Method presentM = class_getInstanceMethod(<span class="keyword">self</span>.class, <span class="keyword">@selector</span>(presentViewController:animated:completion:));</span><br><span class="line">        Method presentSwizzlingM = class_getInstanceMethod(<span class="keyword">self</span>.class, <span class="keyword">@selector</span>(ox_presentViewController:animated:completion:));</span><br><span class="line">        <span class="comment">// 交换方法实现</span></span><br><span class="line">        method_exchangeImplementations(presentM, presentSwizzlingM);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自己的替换展示弹出框的方法</span></span><br><span class="line">- (<span class="keyword">void</span>)ox_presentViewController:(<span class="built_in">UIViewController</span> *)viewControllerToPresent animated:(<span class="built_in">BOOL</span>)flag completion:(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))completion &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([viewControllerToPresent isKindOfClass:[<span class="built_in">UIAlertController</span> <span class="keyword">class</span>]]) &#123;<span class="comment">// 要弹出的是UIAlertController</span></span><br><span class="line">        <span class="comment">// 输出到控制到可以发现两者都是null</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"title : %@"</span>,((<span class="built_in">UIAlertController</span> *)viewControllerToPresent).title);</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"message : %@"</span>,((<span class="built_in">UIAlertController</span> *)viewControllerToPresent).message);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 换图标时的提示框的title和message都是nil，由此可特殊处理</span></span><br><span class="line">        <span class="built_in">UIAlertController</span> *alertController = (<span class="built_in">UIAlertController</span> *)viewControllerToPresent;</span><br><span class="line">        <span class="keyword">if</span> (alertController.title == <span class="literal">nil</span> &amp;&amp; alertController.message == <span class="literal">nil</span>) &#123;<span class="comment">// 是换图标的提示</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;<span class="comment">// 其他提示还是正常处理</span></span><br><span class="line">            [<span class="keyword">self</span> ox_presentViewController:viewControllerToPresent animated:flag completion:completion];</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 其他的弹出还是正常处理</span></span><br><span class="line">    [<span class="keyword">self</span> ox_presentViewController:viewControllerToPresent animated:flag completion:completion];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -223,12 +250,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2019/12/31/bundle%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E5%BA%94%E7%94%A8/" rel="prev" title="bundle文件的制作和应用">
-      <i class="fa fa-chevron-left"></i> bundle文件的制作和应用
+    <a href="/2019/12/31/%E6%A0%B9%E6%8D%AENSDate%E5%BE%97%E5%88%B0%E5%86%9C%E5%8E%86%E7%9A%84%E5%B9%B4%E4%BB%BD(%E5%8C%85%E6%8B%AC%E7%94%9F%E8%82%96)-%E3%80%81%E6%9C%88%E3%80%81%E6%97%A5%E3%80%82/" rel="prev" title="根据NSDate得到农历的年份(包括生肖)-、月、日。">
+      <i class="fa fa-chevron-left"></i> 根据NSDate得到农历的年份(包括生肖)-、月、日。
     </a></div>
       <div class="post-nav-item">
-    <a href="/2019/12/31/%E7%9B%91%E5%90%ACUINavigationController-%E6%BB%91%E5%8A%A8%E8%BF%94%E5%9B%9E%E6%89%8B%E5%8A%BF/" rel="next" title="监听UINavigationController-滑动返回手势">
-      监听UINavigationController-滑动返回手势 <i class="fa fa-chevron-right"></i>
+    <a href="/2019/12/31/bundle%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E5%BA%94%E7%94%A8/" rel="next" title="bundle文件的制作和应用">
+      bundle文件的制作和应用 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -280,10 +307,10 @@
 
       <ul class="sidebar-nav motion-element">
         <li class="sidebar-nav-toc">
-          Table of Contents
+          文章目录
         </li>
         <li class="sidebar-nav-overview">
-          Overview
+          站点概览
         </li>
       </ul>
 
@@ -294,6 +321,8 @@
 
       <div class="site-overview-wrap sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="小飞侠"
+      src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">小飞侠</p>
   <div class="site-description" itemprop="description">iOS iphone developer</div>
 </div>
@@ -303,11 +332,28 @@
           <a href="/archives/">
         
           <span class="site-state-item-count">7</span>
-          <span class="site-state-item-name">posts</span>
+          <span class="site-state-item-name">日志</span>
         </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/AlwaysYang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;AlwaysYang" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
 
 
 
@@ -334,11 +380,6 @@
   </span>
   <span class="author" itemprop="copyrightHolder">小飞侠</span>
 </div>
-  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> v4.2.0
-  </div>
-  <span class="post-meta-divider">|</span>
-  <div class="theme-info">Theme – <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v7.6.0
-  </div>
 
         
 
@@ -363,7 +404,7 @@
 <script src="/js/motion.js"></script>
 
 
-<script src="/js/schemes/muse.js"></script>
+<script src="/js/schemes/pisces.js"></script>
 
 
 <script src="/js/next-boot.js"></script>
@@ -391,5 +432,7 @@
 
   
 
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
