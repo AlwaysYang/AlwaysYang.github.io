@@ -254,94 +254,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/bundle%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E5%BA%94%E7%94%A8/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="小飞侠">
-      <meta itemprop="description" content="iOS iphone developer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小飞侠的博客">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/31/bundle%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">bundle文件的制作和应用</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-31 00:00:00 / 修改时间：16:39:53" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="bundle文件的简介"><a href="#bundle文件的简介" class="headerlink" title="bundle文件的简介"></a>bundle文件的简介</h2><p>bundle 就是资源文件包，里面可以存放你事先预备好的资源（图片、XIB 等）。我们可以把这些资源打包成一个Bundle文件方便在其他项目中引用。</p>
-<h2 id="bundle文件的特点"><a href="#bundle文件的特点" class="headerlink" title="bundle文件的特点"></a>bundle文件的特点</h2><p>bundle 文件是静态的，其中的资源文件作为资源包不参加项目的编译。也就是说其中不能包含可执行的文件。它仅仅是作为资源，被解析成特定的2进制数据。</p>
-<h2 id="bundle的制作"><a href="#bundle的制作" class="headerlink" title="bundle的制作"></a>bundle的制作</h2><p>制作分为两种方法</p>
-<h3 id="1、使用xcode制作bundle"><a href="#1、使用xcode制作bundle" class="headerlink" title="1、使用xcode制作bundle"></a>1、使用xcode制作bundle</h3><p>新建bundle工程</p>
-<p><img src="https://github.com/AlwaysYang/imgSource/blob/master/1.png?raw=true" alt=""></p>
-<p>导入资源</p>
-<p><img src="https://github.com/AlwaysYang/imgSource/blob/master/2.png?raw=true" alt=""></p>
-<p>编译一下</p>
-<p><img src="https://github.com/AlwaysYang/imgSource/blob/master/2.png?raw=true" alt=""></p>
-<p>找到生成的bundle文件</p>
-<p><img src="https://github.com/AlwaysYang/imgSource/blob/master/3.png?raw=true" alt=""></p>
-<p>直接导入工程就可以使用了</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImageView</span> *imgV = [[<span class="built_in">UIImageView</span> alloc] init];</span><br><span class="line">[<span class="keyword">self</span>.view addSubview:imgV];</span><br><span class="line">[imgV mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.edges.mas_offset(<span class="built_in">UIEdgeInsetsMake</span>(<span class="number">190</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>));</span><br><span class="line">&#125;];</span><br><span class="line">imgV.image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"a.bundle/Contents/Resources/blueSky.png"</span>];</span><br></pre></td></tr></table></figure>
-<h3 id="2、文件夹制作bundle"><a href="#2、文件夹制作bundle" class="headerlink" title="2、文件夹制作bundle"></a>2、文件夹制作bundle</h3><p>在桌面新建一个文件夹里面放入你准备使用的资源文件</p>
-<p>更改文件名为 a.bundle  （文件名由你定）</p>
-<p>这样就完成了</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImageView</span> *imgV = [[<span class="built_in">UIImageView</span> alloc] init];</span><br><span class="line">[<span class="keyword">self</span>.view addSubview:imgV];</span><br><span class="line">[imgV mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.edges.mas_offset(<span class="built_in">UIEdgeInsetsMake</span>(<span class="number">190</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>));</span><br><span class="line">&#125;];</span><br><span class="line">imgV.image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"a.bundle/blueSky.png"</span>];</span><br></pre></td></tr></table></figure>
-
-<p>如图<br><img src="https://github.com/AlwaysYang/imgSource/blob/master/4.png?raw=true" alt=""></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/iOS%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%98%BE%E7%A4%BA%E7%9A%84%E8%AF%95%E5%9B%BE%E6%8E%A7%E5%88%B6%E5%99%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -415,7 +327,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/%E6%8B%A6%E6%88%AA%E7%B3%BB%E7%BB%9F%E5%BC%B9%E5%87%BA%E6%A1%86/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/bundle%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E5%BA%94%E7%94%A8/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -429,7 +341,7 @@
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
           
-            <a href="/2019/12/31/%E6%8B%A6%E6%88%AA%E7%B3%BB%E7%BB%9F%E5%BC%B9%E5%87%BA%E6%A1%86/" class="post-title-link" itemprop="url">拦截系统弹出框</a>
+            <a href="/2019/12/31/bundle%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%B6%E4%BD%9C%E5%92%8C%E5%BA%94%E7%94%A8/" class="post-title-link" itemprop="url">bundle文件的制作和应用</a>
         </h1>
 
         <div class="post-meta">
@@ -440,7 +352,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2019-12-31 00:00:00 / 修改时间：16:39:48" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
+              <time title="创建时间：2019-12-31 00:00:00 / 修改时间：16:39:53" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -465,7 +377,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="keyword">self</span>.view.backgroundColor = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 利用runtime来替换展现弹出框的方法</span></span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">        Method presentM = class_getInstanceMethod(<span class="keyword">self</span>.class, <span class="keyword">@selector</span>(presentViewController:animated:completion:));</span><br><span class="line">        Method presentSwizzlingM = class_getInstanceMethod(<span class="keyword">self</span>.class, <span class="keyword">@selector</span>(ox_presentViewController:animated:completion:));</span><br><span class="line">        <span class="comment">// 交换方法实现</span></span><br><span class="line">        method_exchangeImplementations(presentM, presentSwizzlingM);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自己的替换展示弹出框的方法</span></span><br><span class="line">- (<span class="keyword">void</span>)ox_presentViewController:(<span class="built_in">UIViewController</span> *)viewControllerToPresent animated:(<span class="built_in">BOOL</span>)flag completion:(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))completion &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([viewControllerToPresent isKindOfClass:[<span class="built_in">UIAlertController</span> <span class="keyword">class</span>]]) &#123;<span class="comment">// 要弹出的是UIAlertController</span></span><br><span class="line">        <span class="comment">// 输出到控制到可以发现两者都是null</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"title : %@"</span>,((<span class="built_in">UIAlertController</span> *)viewControllerToPresent).title);</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"message : %@"</span>,((<span class="built_in">UIAlertController</span> *)viewControllerToPresent).message);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 换图标时的提示框的title和message都是nil，由此可特殊处理</span></span><br><span class="line">        <span class="built_in">UIAlertController</span> *alertController = (<span class="built_in">UIAlertController</span> *)viewControllerToPresent;</span><br><span class="line">        <span class="keyword">if</span> (alertController.title == <span class="literal">nil</span> &amp;&amp; alertController.message == <span class="literal">nil</span>) &#123;<span class="comment">// 是换图标的提示</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;<span class="comment">// 其他提示还是正常处理</span></span><br><span class="line">            [<span class="keyword">self</span> ox_presentViewController:viewControllerToPresent animated:flag completion:completion];</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 其他的弹出还是正常处理</span></span><br><span class="line">    [<span class="keyword">self</span> ox_presentViewController:viewControllerToPresent animated:flag completion:completion];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+          <h2 id="bundle文件的简介"><a href="#bundle文件的简介" class="headerlink" title="bundle文件的简介"></a>bundle文件的简介</h2><p>bundle 就是资源文件包，里面可以存放你事先预备好的资源（图片、XIB 等）。我们可以把这些资源打包成一个Bundle文件方便在其他项目中引用。</p>
+<h2 id="bundle文件的特点"><a href="#bundle文件的特点" class="headerlink" title="bundle文件的特点"></a>bundle文件的特点</h2><p>bundle 文件是静态的，其中的资源文件作为资源包不参加项目的编译。也就是说其中不能包含可执行的文件。它仅仅是作为资源，被解析成特定的2进制数据。</p>
+<h2 id="bundle的制作"><a href="#bundle的制作" class="headerlink" title="bundle的制作"></a>bundle的制作</h2><p>制作分为两种方法</p>
+<h3 id="1、使用xcode制作bundle"><a href="#1、使用xcode制作bundle" class="headerlink" title="1、使用xcode制作bundle"></a>1、使用xcode制作bundle</h3><p>新建bundle工程</p>
+<p><img src="https://github.com/AlwaysYang/imgSource/blob/master/1.png?raw=true" alt=""></p>
+<p>导入资源</p>
+<p><img src="https://github.com/AlwaysYang/imgSource/blob/master/2.png?raw=true" alt=""></p>
+<p>编译一下</p>
+<p><img src="https://github.com/AlwaysYang/imgSource/blob/master/2.png?raw=true" alt=""></p>
+<p>找到生成的bundle文件</p>
+<p><img src="https://github.com/AlwaysYang/imgSource/blob/master/3.png?raw=true" alt=""></p>
+<p>直接导入工程就可以使用了</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImageView</span> *imgV = [[<span class="built_in">UIImageView</span> alloc] init];</span><br><span class="line">[<span class="keyword">self</span>.view addSubview:imgV];</span><br><span class="line">[imgV mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.edges.mas_offset(<span class="built_in">UIEdgeInsetsMake</span>(<span class="number">190</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>));</span><br><span class="line">&#125;];</span><br><span class="line">imgV.image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"a.bundle/Contents/Resources/blueSky.png"</span>];</span><br></pre></td></tr></table></figure>
+<h3 id="2、文件夹制作bundle"><a href="#2、文件夹制作bundle" class="headerlink" title="2、文件夹制作bundle"></a>2、文件夹制作bundle</h3><p>在桌面新建一个文件夹里面放入你准备使用的资源文件</p>
+<p>更改文件名为 a.bundle  （文件名由你定）</p>
+<p>这样就完成了</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImageView</span> *imgV = [[<span class="built_in">UIImageView</span> alloc] init];</span><br><span class="line">[<span class="keyword">self</span>.view addSubview:imgV];</span><br><span class="line">[imgV mas_makeConstraints:^(MASConstraintMaker *make) &#123;</span><br><span class="line">    make.edges.mas_offset(<span class="built_in">UIEdgeInsetsMake</span>(<span class="number">190</span>, <span class="number">10</span>, <span class="number">10</span>, <span class="number">10</span>));</span><br><span class="line">&#125;];</span><br><span class="line">imgV.image = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"a.bundle/blueSky.png"</span>];</span><br></pre></td></tr></table></figure>
+
+<p>如图<br><img src="https://github.com/AlwaysYang/imgSource/blob/master/4.png?raw=true" alt=""></p>
 
       
     </div>
@@ -565,77 +495,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/%E7%9B%91%E5%90%ACUINavigationController-%E6%BB%91%E5%8A%A8%E8%BF%94%E5%9B%9E%E6%89%8B%E5%8A%BF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.jpg">
-      <meta itemprop="name" content="小飞侠">
-      <meta itemprop="description" content="iOS iphone developer">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小飞侠的博客">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2019/12/31/%E7%9B%91%E5%90%ACUINavigationController-%E6%BB%91%E5%8A%A8%E8%BF%94%E5%9B%9E%E6%89%8B%E5%8A%BF/" class="post-title-link" itemprop="url">监听UINavigationController-滑动返回手势</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2019-12-31 00:00:00 / 修改时间：16:39:42" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS开发</span>
-                  </a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="1、添加代理-UINavigationControllerDelegate"><a href="#1、添加代理-UINavigationControllerDelegate" class="headerlink" title="1、添加代理 UINavigationControllerDelegate"></a>1、添加代理 UINavigationControllerDelegate</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewWillAppear:animated];</span><br><span class="line">    [<span class="keyword">self</span>.navigationController.navigationBar setHidden:<span class="literal">YES</span>];</span><br><span class="line">    <span class="keyword">if</span> ([[[<span class="built_in">UIDevice</span> currentDevice] systemVersion] floatValue] &gt; <span class="number">7.0</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.navigationController.delegate = <span class="keyword">self</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewWillDisappear:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line">    <span class="keyword">if</span> ([[[<span class="built_in">UIDevice</span> currentDevice] systemVersion] floatValue] &gt; <span class="number">7.0</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.navigationController.delegate = <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2、实现代理方法"><a href="#2、实现代理方法" class="headerlink" title="2、实现代理方法"></a>2、实现代理方法</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//监听滑动手势</span></span><br><span class="line">- (<span class="keyword">void</span>)navigationController:(<span class="built_in">UINavigationController</span> *)navigationController willShowViewController:(<span class="built_in">UIViewController</span> *)viewController animated:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line">    <span class="keyword">id</span> &lt;<span class="built_in">UIViewControllerTransitionCoordinator</span>&gt;tc = navigationController.topViewController.transitionCoordinator;</span><br><span class="line">    [tc notifyWhenInteractionChangesUsingBlock:^(<span class="keyword">id</span>&lt;<span class="built_in">UIViewControllerTransitionCoordinatorContext</span>&gt;  _Nonnull context) &#123;</span><br><span class="line">        [dataKit kit].reloadFlage = [context isCancelled];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="context-isCancelled-是BOOL类型，未返回-context-isCancelled-YES，返回成功-context-isCancelled-NO。"><a href="#context-isCancelled-是BOOL类型，未返回-context-isCancelled-YES，返回成功-context-isCancelled-NO。" class="headerlink" title="[context isCancelled] 是BOOL类型，未返回[context isCancelled]==YES，返回成功[context isCancelled]==NO。"></a>[context isCancelled] 是BOOL类型，未返回[context isCancelled]==YES，返回成功[context isCancelled]==NO。</h4><h4 id="点击按钮返回-或使用-navigationController-popviewcontorller-不进入此回调。"><a href="#点击按钮返回-或使用-navigationController-popviewcontorller-不进入此回调。" class="headerlink" title="点击按钮返回 或使用 [navigationController popviewcontorller] 不进入此回调。"></a>点击按钮返回 或使用 [navigationController popviewcontorller] 不进入此回调。</h4>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/%E8%A7%A3%E5%86%B3WKWebview-localstorage-%E5%AD%98%E5%8F%96%E4%BF%A1%E6%81%AF%E4%B8%8D%E4%B8%80%E8%87%B4%E9%97%AE%E9%A2%98/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -695,6 +554,147 @@
 
 <h2 id="疑惑"><a href="#疑惑" class="headerlink" title="疑惑"></a>疑惑</h2><p>使用WKWebview 感觉比 UIWebview 加载还慢一些。不知道是不是缓存的原因。 求老哥们解答。 </p>
 
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/%E6%8B%A6%E6%88%AA%E7%B3%BB%E7%BB%9F%E5%BC%B9%E5%87%BA%E6%A1%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小飞侠">
+      <meta itemprop="description" content="iOS iphone developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小飞侠的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/31/%E6%8B%A6%E6%88%AA%E7%B3%BB%E7%BB%9F%E5%BC%B9%E5%87%BA%E6%A1%86/" class="post-title-link" itemprop="url">拦截系统弹出框</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-31 00:00:00 / 修改时间：16:39:48" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">&lt;objc/runtime.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="keyword">self</span>.view.backgroundColor = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 利用runtime来替换展现弹出框的方法</span></span><br><span class="line">    <span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken;</span><br><span class="line">    <span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line">        Method presentM = class_getInstanceMethod(<span class="keyword">self</span>.class, <span class="keyword">@selector</span>(presentViewController:animated:completion:));</span><br><span class="line">        Method presentSwizzlingM = class_getInstanceMethod(<span class="keyword">self</span>.class, <span class="keyword">@selector</span>(ox_presentViewController:animated:completion:));</span><br><span class="line">        <span class="comment">// 交换方法实现</span></span><br><span class="line">        method_exchangeImplementations(presentM, presentSwizzlingM);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 自己的替换展示弹出框的方法</span></span><br><span class="line">- (<span class="keyword">void</span>)ox_presentViewController:(<span class="built_in">UIViewController</span> *)viewControllerToPresent animated:(<span class="built_in">BOOL</span>)flag completion:(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))completion &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([viewControllerToPresent isKindOfClass:[<span class="built_in">UIAlertController</span> <span class="keyword">class</span>]]) &#123;<span class="comment">// 要弹出的是UIAlertController</span></span><br><span class="line">        <span class="comment">// 输出到控制到可以发现两者都是null</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"title : %@"</span>,((<span class="built_in">UIAlertController</span> *)viewControllerToPresent).title);</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"message : %@"</span>,((<span class="built_in">UIAlertController</span> *)viewControllerToPresent).message);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 换图标时的提示框的title和message都是nil，由此可特殊处理</span></span><br><span class="line">        <span class="built_in">UIAlertController</span> *alertController = (<span class="built_in">UIAlertController</span> *)viewControllerToPresent;</span><br><span class="line">        <span class="keyword">if</span> (alertController.title == <span class="literal">nil</span> &amp;&amp; alertController.message == <span class="literal">nil</span>) &#123;<span class="comment">// 是换图标的提示</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;<span class="comment">// 其他提示还是正常处理</span></span><br><span class="line">            [<span class="keyword">self</span> ox_presentViewController:viewControllerToPresent animated:flag completion:completion];</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 其他的弹出还是正常处理</span></span><br><span class="line">    [<span class="keyword">self</span> ox_presentViewController:viewControllerToPresent animated:flag completion:completion];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/12/31/%E7%9B%91%E5%90%ACUINavigationController-%E6%BB%91%E5%8A%A8%E8%BF%94%E5%9B%9E%E6%89%8B%E5%8A%BF/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小飞侠">
+      <meta itemprop="description" content="iOS iphone developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小飞侠的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2019/12/31/%E7%9B%91%E5%90%ACUINavigationController-%E6%BB%91%E5%8A%A8%E8%BF%94%E5%9B%9E%E6%89%8B%E5%8A%BF/" class="post-title-link" itemprop="url">监听UINavigationController-滑动返回手势</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-12-31 00:00:00 / 修改时间：16:39:42" itemprop="dateCreated datePublished" datetime="2019-12-31T00:00:00+08:00">2019-12-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h4 id="1、添加代理-UINavigationControllerDelegate"><a href="#1、添加代理-UINavigationControllerDelegate" class="headerlink" title="1、添加代理 UINavigationControllerDelegate"></a>1、添加代理 UINavigationControllerDelegate</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewWillAppear:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewWillAppear:animated];</span><br><span class="line">    [<span class="keyword">self</span>.navigationController.navigationBar setHidden:<span class="literal">YES</span>];</span><br><span class="line">    <span class="keyword">if</span> ([[[<span class="built_in">UIDevice</span> currentDevice] systemVersion] floatValue] &gt; <span class="number">7.0</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.navigationController.delegate = <span class="keyword">self</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewWillDisappear:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line">    <span class="keyword">if</span> ([[[<span class="built_in">UIDevice</span> currentDevice] systemVersion] floatValue] &gt; <span class="number">7.0</span>) &#123;</span><br><span class="line">        <span class="keyword">self</span>.navigationController.delegate = <span class="literal">nil</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2、实现代理方法"><a href="#2、实现代理方法" class="headerlink" title="2、实现代理方法"></a>2、实现代理方法</h4><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//监听滑动手势</span></span><br><span class="line">- (<span class="keyword">void</span>)navigationController:(<span class="built_in">UINavigationController</span> *)navigationController willShowViewController:(<span class="built_in">UIViewController</span> *)viewController animated:(<span class="built_in">BOOL</span>)animated&#123;</span><br><span class="line">    <span class="keyword">id</span> &lt;<span class="built_in">UIViewControllerTransitionCoordinator</span>&gt;tc = navigationController.topViewController.transitionCoordinator;</span><br><span class="line">    [tc notifyWhenInteractionChangesUsingBlock:^(<span class="keyword">id</span>&lt;<span class="built_in">UIViewControllerTransitionCoordinatorContext</span>&gt;  _Nonnull context) &#123;</span><br><span class="line">        [dataKit kit].reloadFlage = [context isCancelled];</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="context-isCancelled-是BOOL类型，未返回-context-isCancelled-YES，返回成功-context-isCancelled-NO。"><a href="#context-isCancelled-是BOOL类型，未返回-context-isCancelled-YES，返回成功-context-isCancelled-NO。" class="headerlink" title="[context isCancelled] 是BOOL类型，未返回[context isCancelled]==YES，返回成功[context isCancelled]==NO。"></a>[context isCancelled] 是BOOL类型，未返回[context isCancelled]==YES，返回成功[context isCancelled]==NO。</h4><h4 id="点击按钮返回-或使用-navigationController-popviewcontorller-不进入此回调。"><a href="#点击按钮返回-或使用-navigationController-popviewcontorller-不进入此回调。" class="headerlink" title="点击按钮返回 或使用 [navigationController popviewcontorller] 不进入此回调。"></a>点击按钮返回 或使用 [navigationController popviewcontorller] 不进入此回调。</h4>
       
     </div>
 
