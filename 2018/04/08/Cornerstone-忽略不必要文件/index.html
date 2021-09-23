@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.4.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.6.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    comments: {"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}
+  };
+</script>
+
+  <meta name="description" content="cornerstone 修改 preferences中忽略项目不起作用请直接看4、(假装有超链接)。XCode工程中有个文件夹xuserdata,这个铁头娃文件更新非常频繁，每次commit都有他。眼不见心不烦我们可以设置在提交的时候忽略这个文件。 此文件中存放内容：  1.Xcode默认会记住我们当前正在编辑的文件，也就是上次退出项目时停留的文件，下次打开项目会停留在该文件。我们不需要把这些信息">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Cornerstone忽略文件">
+<meta property="og:url" content="http://yoursite.com/2018/04/08/Cornerstone-%E5%BF%BD%E7%95%A5%E4%B8%8D%E5%BF%85%E8%A6%81%E6%96%87%E4%BB%B6/index.html">
+<meta property="og:site_name" content="小飞侠的博客">
+<meta property="og:description" content="cornerstone 修改 preferences中忽略项目不起作用请直接看4、(假装有超链接)。XCode工程中有个文件夹xuserdata,这个铁头娃文件更新非常频繁，每次commit都有他。眼不见心不烦我们可以设置在提交的时候忽略这个文件。 此文件中存放内容：  1.Xcode默认会记住我们当前正在编辑的文件，也就是上次退出项目时停留的文件，下次打开项目会停留在该文件。我们不需要把这些信息">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2155176-3efb3ed4125bf379.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2155176-80a47ebd82e100af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2155176-5bb93583f1b19453.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="article:published_time" content="2018-04-07T16:00:00.000Z">
+<meta property="article:modified_time" content="2019-12-31T08:54:29.000Z">
+<meta property="article:author" content="小飞侠">
+<meta property="article:tag" content="Cornerstone">
+<meta property="article:tag" content="SVN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2155176-3efb3ed4125bf379.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+<link rel="canonical" href="http://yoursite.com/2018/04/08/Cornerstone-%E5%BF%BD%E7%95%A5%E4%B8%8D%E5%BF%85%E8%A6%81%E6%96%87%E4%BB%B6/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true
+  };
+</script>
+
+  <title>Cornerstone忽略文件 | 小飞侠的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">小飞侠的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">纸上得来终觉浅，绝知此事要躬行。</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/08/Cornerstone-%E5%BF%BD%E7%95%A5%E4%B8%8D%E5%BF%85%E8%A6%81%E6%96%87%E4%BB%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="小飞侠">
+      <meta itemprop="description" content="iOS iphone developer">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小飞侠的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Cornerstone忽略文件
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2018-04-08 00:00:00" itemprop="dateCreated datePublished" datetime="2018-04-08T00:00:00+08:00">2018-04-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-12-31 16:54:29" itemprop="dateModified" datetime="2019-12-31T16:54:29+08:00">2019-12-31</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS%E5%BC%80%E5%8F%91/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2018/04/08/Cornerstone-%E5%BF%BD%E7%95%A5%E4%B8%8D%E5%BF%85%E8%A6%81%E6%96%87%E4%BB%B6/#comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2018/04/08/Cornerstone-%E5%BF%BD%E7%95%A5%E4%B8%8D%E5%BF%85%E8%A6%81%E6%96%87%E4%BB%B6/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="cornerstone-修改-preferences中忽略项目不起作用请直接看4、-假装有超链接-。"><a href="#cornerstone-修改-preferences中忽略项目不起作用请直接看4、-假装有超链接-。" class="headerlink" title="cornerstone 修改 preferences中忽略项目不起作用请直接看4、(假装有超链接)。"></a>cornerstone 修改 preferences中忽略项目不起作用请直接看4、(假装有超链接)。</h4><p>XCode工程中有个文件夹xuserdata,这个铁头娃文件更新非常频繁，每次commit都有他。眼不见心不烦我们可以设置在提交的时候忽略这个文件。</p>
+<p>此文件中存放内容：</p>
+<blockquote>
+<p>1.Xcode默认会记住我们当前正在编辑的文件，也就是上次退出项目时停留的文件，下次打开项目会停留在该文件。我们不需要把这些信息共享给同事，所以需要忽略。<br>2.Xcode会记录目录的打开情况。同事不需要共享。<br>3.断点信息。同事不需要共享。<br>以上三个需要忽略的信息，都在xcuserdata 文件夹下，所以只需要忽略xcuserdata文件夹。</p>
+</blockquote>
+<h4 id="1、设置-cornerstone的全局忽略文件："><a href="#1、设置-cornerstone的全局忽略文件：" class="headerlink" title="1、设置 cornerstone的全局忽略文件："></a>1、设置 cornerstone的全局忽略文件：</h4><p>cornerstone -&gt; preferences -&gt; subversion </p>
+<p>1、取消勾选 use default global ignores。</p>
+<p>2、然后编辑忽略文件。 </p>
+<p>3、点击save。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2155176-3efb3ed4125bf379.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="设置需要忽略的文件"></p>
+<h4 id="2、忽略指定文件-文件夹"><a href="#2、忽略指定文件-文件夹" class="headerlink" title="2、忽略指定文件/文件夹"></a>2、忽略指定文件/文件夹</h4><p>选中右键选择 Ignore</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2155176-80a47ebd82e100af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="忽略指定文件/文件夹"></p>
+<p>忽略成功后 </p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2155176-5bb93583f1b19453.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image"></p>
+<h4 id="3、取消忽略"><a href="#3、取消忽略" class="headerlink" title="3、取消忽略"></a>3、取消忽略</h4><p>删除上图中的忽略项目 点击保存</p>
+<h4 id="4、有些同学发现在preferences中设置后-没什么卵用。文件夹还是会显示在上面。-右键选中指定文件之后Igonre却是灰色的。"><a href="#4、有些同学发现在preferences中设置后-没什么卵用。文件夹还是会显示在上面。-右键选中指定文件之后Igonre却是灰色的。" class="headerlink" title="4、有些同学发现在preferences中设置后 没什么卵用。文件夹还是会显示在上面。 右键选中指定文件之后Igonre却是灰色的。"></a>4、有些同学发现在preferences中设置后 <em>没什么卵用</em>。文件夹还是会显示在上面。 右键选中指定文件之后Igonre却是灰色的。</h4><p>是因为：</p>
+<blockquote>
+<p>Cornerstone can only ignore unversioned files. Once a file has been added to a working copy it can no longer be ignored.</p>
+</blockquote>
+<p>已经添加working copy的文件是不能被忽略的。<a target="_blank" rel="noopener" href="http://www.zennaware.com/cornerstone/helpbook/pages/introduction/terminology/working-copies.html">working-copies</a></p>
+<p>解决方法：</p>
+<p>1、备份文件</p>
+<p>2、删除文件</p>
+<p>3、提交</p>
+<p>4、把备份文件重新放入原地址（如果在preferences中设置了忽略文件，此文件不会显示在工作空间中）</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Cornerstone/" rel="tag"><i class="fa fa-tag"></i> Cornerstone</a>
+              <a href="/tags/SVN/" rel="tag"><i class="fa fa-tag"></i> SVN</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2019/12/31/iOS%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E6%98%BE%E7%A4%BA%E7%9A%84viewController/" rel="next" title="iOS获取当前显示的试图控制器">
+      iOS获取当前显示的试图控制器 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#cornerstone-%E4%BF%AE%E6%94%B9-preferences%E4%B8%AD%E5%BF%BD%E7%95%A5%E9%A1%B9%E7%9B%AE%E4%B8%8D%E8%B5%B7%E4%BD%9C%E7%94%A8%E8%AF%B7%E7%9B%B4%E6%8E%A5%E7%9C%8B4%E3%80%81-%E5%81%87%E8%A3%85%E6%9C%89%E8%B6%85%E9%93%BE%E6%8E%A5-%E3%80%82"><span class="nav-number">1.</span> <span class="nav-text">cornerstone 修改 preferences中忽略项目不起作用请直接看4、(假装有超链接)。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#1%E3%80%81%E8%AE%BE%E7%BD%AE-cornerstone%E7%9A%84%E5%85%A8%E5%B1%80%E5%BF%BD%E7%95%A5%E6%96%87%E4%BB%B6%EF%BC%9A"><span class="nav-number">2.</span> <span class="nav-text">1、设置 cornerstone的全局忽略文件：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2%E3%80%81%E5%BF%BD%E7%95%A5%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6-%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">3.</span> <span class="nav-text">2、忽略指定文件&#x2F;文件夹</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3%E3%80%81%E5%8F%96%E6%B6%88%E5%BF%BD%E7%95%A5"><span class="nav-number">4.</span> <span class="nav-text">3、取消忽略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4%E3%80%81%E6%9C%89%E4%BA%9B%E5%90%8C%E5%AD%A6%E5%8F%91%E7%8E%B0%E5%9C%A8preferences%E4%B8%AD%E8%AE%BE%E7%BD%AE%E5%90%8E-%E6%B2%A1%E4%BB%80%E4%B9%88%E5%8D%B5%E7%94%A8%E3%80%82%E6%96%87%E4%BB%B6%E5%A4%B9%E8%BF%98%E6%98%AF%E4%BC%9A%E6%98%BE%E7%A4%BA%E5%9C%A8%E4%B8%8A%E9%9D%A2%E3%80%82-%E5%8F%B3%E9%94%AE%E9%80%89%E4%B8%AD%E6%8C%87%E5%AE%9A%E6%96%87%E4%BB%B6%E4%B9%8B%E5%90%8EIgonre%E5%8D%B4%E6%98%AF%E7%81%B0%E8%89%B2%E7%9A%84%E3%80%82"><span class="nav-number">5.</span> <span class="nav-text">4、有些同学发现在preferences中设置后 没什么卵用。文件夹还是会显示在上面。 右键选中指定文件之后Igonre却是灰色的。</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="小飞侠"
+      src="/images/avatar.jpg">
+  <p class="site-author-name" itemprop="name">小飞侠</p>
+  <div class="site-description" itemprop="description">iOS iphone developer</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">9</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/AlwaysYang" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;AlwaysYang" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小飞侠</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el: '#valine-comments',
+      verify: false,
+      notify: false,
+      appId: 'viXMbAEYrwBFNWzxKanTIBrE-gzGzoHsz',
+      appKey: 'd14tIbdmjvOqqpQtlHBfMjSp',
+      placeholder: "你的看法",
+      avatar: 'mm',
+      meta: guest,
+      pageSize: '10' || 10,
+      visitor: false,
+      lang: 'zh-cn' || 'zh-cn',
+      path: location.pathname,
+      recordIP: false,
+      serverURLs: ''
+    });
+  }, window.Valine);
+});
+</script>
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/clicklove.js"></script>
